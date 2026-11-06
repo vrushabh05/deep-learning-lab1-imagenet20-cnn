@@ -65,3 +65,18 @@ Each conv is 3x3 without bias, followed by batch norm and ReLU; weights use Kaim
 - The NPU accuracy of the compiled model is not recorded in this repository, so only the FP32 result is reported.
 - `npu_validate.py` needs the Mobilint `maccel` runtime and an NPU.
 - The dataset is not included.
+
+## Notebooks
+
+| Notebook | Contents |
+|---|---|
+| [`Lab1_Working.ipynb`](notebooks/Lab1_Working.ipynb) | The run this repository documents (best validation accuracy 67.30%) |
+| [`experiments/Lab1_ImageNet20_residual_net.ipynb`](notebooks/experiments/Lab1_ImageNet20_residual_net.ipynb) | Residual-block variant, 30 epochs, best validation accuracy 66.20% |
+| [`experiments/Lab1_DualPathNet20.ipynb`](notebooks/experiments/Lab1_DualPathNet20.ipynb) | Larger SE / inverted-residual network (3,506,836 parameters), best validation accuracy 70.70% |
+| `experiments/Lab1_early_version*.ipynb` | Earlier drafts, kept for reference |
+| `npu_helpers/` | Notebooks for the ONNX-to-MXQ conversion, calibration images and NPU validation (no saved outputs) |
+
+The 70.70% run is a different, larger model than the one documented above. Its validation accuracy swung between about 58% and 71% from epoch to epoch under a warm-restart schedule, and it did not print an NPU or ONNX accuracy, so the NPU accuracy of the compiled model remains unrecorded for every variant.
+
+Student identifiers and Colab account metadata were removed; code and outputs are unchanged.
+
